@@ -1,17 +1,17 @@
 const Koa = require("koa");
-const Router = require("koa-router");
 const colors = require("colors");
-
-const hello = require("./middleware/hello");
-const responseTime = require("./middleware/response-time");
-const responseData = require("./middleware/response-data");
 
 const app = new Koa();
 
-app.use(hello);
-app.use(responseData);
-app.use(responseTime);
+// 服务器路由
+const router = require("./router/router");
+app.use(router);
 
+// 数据响应中间件
+const responseData = require("./middleware/response-data");
+app.use(responseData);
+
+// 服务器启动日志
 runableLog = () => {
   console.log("------------------------------------------".yellow.bold);
   console.log(" Server Running -> http://localhost:3000/");

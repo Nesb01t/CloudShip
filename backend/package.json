@@ -3,5 +3,8 @@
     "colors": "^1.4.0",
     "koa": "^2.14.1",
     "koa-router": "^12.0.0"
+  },
+  "scripts": {
+    "dev": "node app.js"
   }
 }

@@ -8,16 +8,15 @@ testobject = {
   },
 };
 file = {
-  createFile(name) {
-    name = name.replace("/", "");
+  createFile(dirName, name) {
+    // 初始化文件夹
+    if (!fs.existsSync("../data/" + dirName)) {
+      fs.mkdirSync("../data/" + dirName);
+    }
+
+    // 写入内容
     ctx = JSON.stringify(testobject);
-    fs.writeFileSync("data/" + name + ".json", ctx, (error) => {
-      if (error) {
-        console.log("CreateFileError");
-      } else {
-        console.log("CreateFileSuccess");
-      }
-    });
+    fs.writeFileSync("../data/" + dirName + "/" + name + ".json", ctx);
   },
 };
 
