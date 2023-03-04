@@ -7,6 +7,8 @@
 		<view class="contact">
 			<p>联系人</p><input type="text" placeholder="联系人">
 		</view>
+		<text>{{textValue}}</text>
+		<button @click="ChangeVlaue()">修改text里的值</button>
 	</view>
 </template>
 
@@ -14,15 +16,19 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello，叶俊豪'
+				title: 'Hello，叶俊豪',
+				textValue:'5、6、7',
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
-		}
+		  ChangeVlaue(){
+			  this.textValue='8、9、10'
+		  }
+		},
+	
 	}
 </script>
 
