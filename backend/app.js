@@ -1,14 +1,13 @@
 const Koa = require("koa");
 const colors = require("colors");
+const bodyParser = require("koa-bodyparser");
+
+const router = require("./router/router");
+const responseData = require("./middleware/response-data");
 
 const app = new Koa();
-
-// 服务器路由
-const router = require("./router/router");
+app.use(bodyParser());
 app.use(router);
-
-// 数据响应中间件
-const responseData = require("./middleware/response-data");
 app.use(responseData);
 
 // 服务器启动日志

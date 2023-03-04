@@ -1,23 +1,33 @@
 const fs = require("fs");
 const path = require("path");
 
-testobject = {
-  hello: "hello",
-  getHello: () => {
-    console.log(this.hello);
-  },
-};
-file = {
-  createFile(dirName, name) {
+defaultContext = {};
+
+module.exports = {
+  createFile(dirName, fileName, context) {
     // 初始化文件夹
     if (!fs.existsSync("../data/" + dirName)) {
       fs.mkdirSync("../data/" + dirName);
     }
 
     // 写入内容
-    ctx = JSON.stringify(testobject);
-    fs.writeFileSync("../data/" + dirName + "/" + name + ".json", ctx);
+    if (context == null) {
+      context == defaultContext;
+    }
+    fs.writeFileSync(
+      "../data/" + dirName + "/" + fileName + ".json",
+      JSON.stringify(context)
+    );
+  },
+  readFile(dirName, fileName) {
+    if (this.isFileExist(dirName, fileName)) {
+      var context = fs.readFileSync(
+        "../data/" + dirName + "/" + fileName + ".json"
+      );
+      return JSON.parse(context);
+    }
+  },
+  isFileExist(dirName, fileName) {
+    return fs.existsSync("../data/" + dirName + "/" + fileName + ".json");
   },
 };
-
-module.exports = file;
