@@ -5,7 +5,7 @@
 		</view>
 		<text>{{textValue}}</text>
 		<button @click="ChangeVlaue()">修改text里的值</button>
-		<view v-for="(name,value,index) in Object" :key="index">
+		<view v-for="(value,name,index) in Object" :key="index">
 			 {{ index }}. {{ name }}: {{ value }}
 		</view>
 	</view>
@@ -59,5 +59,8 @@
 	.title {
 		font-size: 36rpx;
 		color: #8f8f94;
+	}
+	.contact{
+		display: flex;
 	}
 </style>
