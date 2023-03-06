@@ -1,27 +1,29 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
 		<view class="contact">
-			<p>联系人</p><input type="text" placeholder="联系人">
+			<p>联系人:</p><input type="text" placeholder="联系人">
 		</view>
 		<text>{{textValue}}</text>
 		<button @click="ChangeVlaue()">修改text里的值</button>
+		<view v-for="(name,value,index) in Object" :key="index">
+			 {{ index }}. {{ name }}: {{ value }}
+		</view>
 	</view>
+
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				title: 'Hello，叶俊豪',
-				textValue:'5、6、7',
-			}
-		},
-		onLoad() {
-
+				textValue:'3456',
+				Object:{
+						name:'Anker',
+						Phone:'17857987320',
+						Class:'数字媒体技术211',
+				}
+				
+			};
 		},
 		methods: {
 		  ChangeVlaue(){
