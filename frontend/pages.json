@@ -2,14 +2,9 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
+
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 
 		{
 			"path": "pages/contact/contact",
@@ -17,92 +12,56 @@
 				"navigationBarTitleText": "联系"
 			}
 		},
-
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
 		{
 			"path": "pages/log/login",
 			"style": {
 				"navigationBarTitleText": "登录"
 			}
-		}
-
-
-		, {
+		},
+		{
 			"path": "pages/cmhtest/cmhtest",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
+		},
+		{
+			"path": "pages/yjhtext/yjhtext",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
+
 	],
+	"tabBar": {
+		"color": "black",
+		"selectedColor": "#1296db",
+		"backgroundColor": "#fff",
+		"list": [{
+				"pagePath": "pages/contact/contact",
+				"text": "联系人",
+				"iconPath": "static/tabbar/contact (2).png",
+				"selectedIconPath": "static/tabbar/contact-1.png"
+			},
+
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的",
+				"iconPath": "static/tabbar/我的-我的.png",
+				"selectedIconPath": "static/tabbar/我的-我的 (1).png"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#ffaa00",
-		"backgroundColor": "#ffaaff"
+		"navigationBarBackgroundColor": "#9abaff",
+		"backgroundColor": "#9abaff"
 	},
 	"uniIdRouter": {}
- "easycom": {
-  "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
- },
- "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-
-{
-   "path": "pages/contact/contact",
-   "style": {
-    "navigationBarTitleText": "联系"
- } 
-  },
-  {
-   "path": "pages/mine/mine",
-   "style": {
-    "navigationBarTitleText": ""
-   }
-  },
-  {
-   "path": "pages/log/login",
-   "style": {
-    "navigationBarTitleText": "登录"
-   }
-  },
-  {
-   "path": "pages/cmhtest/cmhtest",
-   "style": {
-    "navigationBarTitleText": "",
-    "enablePullDownRefresh": false
-   }
-  },
-  {
-	  "path": "pages/yjhtext/yjhtext",
-	  "style": {
-	  	"navigationBarTitleText": ""
-	  }
-  }
-
- ],
- "tabBar": {
- 	    "color": "black",
- 	    "selectedColor": "#1296db",
- 	    "backgroundColor": "#fff",
-	"list": [
-		{
-			"pagePath": "pages/contact/contact",
-			"text": "联系人",
-			"iconPath": "static/tabbar/contact (2).png",
-			"selectedIconPath": "static/tabbar/contact-1.png"
-		},
-			
-		{
-			"pagePath": "pages/mine/mine",
-			"text":"我的",
-			"iconPath": "static/tabbar/我的-我的.png",
-			"selectedIconPath": "static/tabbar/我的-我的 (1).png"
-		}
-	]
- },
- "globalStyle": {
-  "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#9abaff",
-  "backgroundColor": "#9abaff"
- },
- "uniIdRouter": {}
 }
