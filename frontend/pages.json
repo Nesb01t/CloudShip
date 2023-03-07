@@ -2,10 +2,13 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
-
-
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-
+	"pages": [
+		{
+			"path": "pages/auth/auth",
+			"style": {
+				"navigationBarTitleText": "登入"
+			}
+		},
 		{
 			"path": "pages/contact/contact",
 			"style": {
@@ -15,26 +18,7 @@
 		{
 			"path": "pages/mine/mine",
 			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/log/login",
-			"style": {
-				"navigationBarTitleText": "登录"
-			}
-		},
-		{
-			"path": "pages/cmhtest/cmhtest",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/yjhtext/yjhtext",
-			"style": {
-				"navigationBarTitleText": ""
+				
 			}
 		}
 
@@ -60,8 +44,8 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#9abaff",
-		"backgroundColor": "#9abaff"
+		"navigationBarBackgroundColor": "#dedede",
+		"backgroundColor": "#dedede"
 	},
 	"uniIdRouter": {}
 }
