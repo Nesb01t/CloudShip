@@ -38,7 +38,7 @@ module.exports = {
       "../data/" + dirName + "/" + fileName + ".json"
     );
     if (!fileExist) {
-      return;
+      return false;
     }
 
     // 读取内容
