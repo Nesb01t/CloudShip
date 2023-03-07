@@ -1,14 +1,11 @@
 const Koa = require("koa");
 const colors = require("colors");
 const bodyParser = require("koa-bodyparser");
-
-const router = require("./router/router");
-const responseData = require("./middleware/response-data");
+const AutoConroller = require("./routes/auth");
 
 const app = new Koa();
 app.use(bodyParser());
-app.use(router);
-app.use(responseData);
+app.use(AutoConroller());
 
 // 服务器启动日志
 runableLog = () => {

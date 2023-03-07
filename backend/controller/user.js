@@ -1,22 +1,6 @@
-const file = require("../utils/files");
-
-class User {
+class UserController {
   constructor() {}
-  login(name, password) {
-    if (this.exist(name)) {
-      // 登录
-      var user = file.readFile("user", name);
-      if (password === user.password) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-
-  exist(name) {
-    return file.isFileExist("user", name);
-  }
+  async UpdateUserInfo(ctx) {}
 }
 
-module.exports = User;
+module.exports = UserController;
