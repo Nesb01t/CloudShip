@@ -1,31 +1,24 @@
-<view class="item-tag">
-<uni-list>
-	<uni-list-item title="" note="">123</uni-list-item>
-	<uni-list-item title="" note="">456</uni-list-item>
-</uni-list>
-</view>
-<u-search inputAlign="center" height="70"></u-search>
+
 <template>
-	
-	<u-index-list :index-list="indexList">
-		<template v-for="(item, index) in itemArr">
-			<!-- #ifdef APP-NVUE -->
-	<u-index-anchor :text="indexList[index]"></u-index-anchor>
-			<!-- #endif -->
-	<u-index-item>
-				<!-- #ifndef APP-NVUE -->
-				<u-index-anchor :text="indexList[index]"></u-index-anchor>
-				<!-- #endif -->
-				<a href="#">
-            			
-		<view class="list-cell" v-for="(cell, index) in item">
-				<u-avatar shape="square" size='30' id='avatar'></u-avatar>	
-					{{cell}}
-				</view>
-				</a>
-			</u-index-item>
-		</template>
-	</u-index-list>
+	<view class="item-tag">
+		<uni-list>
+			<uni-list-item title="" note="">123</uni-list-item>
+			<uni-list-item title="" note="">456</uni-list-item>
+		</uni-list>
+		<u-search inputAlign="center" height="70"></u-search>
+		
+		<u-index-list :index-list="indexList">
+			<view v-for="(item, index) in itemArr">
+					<u-index-anchor :text="indexList[index]"></u-index-anchor>
+					<a href="#">
+						<view class="list-cell" v-for="(cell, index) in item">
+								<u-avatar style="margin-right: 20px;" shape="square" size='30' id='avatar'></u-avatar>	
+									{{cell}}
+						</view>
+					</a>
+			</view>
+		</u-index-list>
+	</view>
 </template>
 
 <script>
@@ -42,6 +35,12 @@
 				],
 				
 			}
+		},mounted() {
+			uni.request({
+				url:"",
+				success: (e) => {
+								}
+			})
 		}
 	}
 </script>

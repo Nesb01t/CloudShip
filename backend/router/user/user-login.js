@@ -1,6 +1,6 @@
 const router = require("koa-router")();
 
-router.get("/", (ctx) => {
+router.get("/user/login", (ctx) => {
   ctx.body = { name: "张三" };
 });
 
