@@ -22,22 +22,29 @@ module.exports = {
   },
 
   /**
-   * 读取JSON中的对象
-   */
-  async readFile(dirName, fileName) {
-    if (this.isFileExist(dirName, fileName)) {
-      var context = fs.readFileSync(
-        "../data/" + dirName + "/" + fileName + ".json"
-      );
-      return JSON.parse(context);
-    }
-  },
-
-  /**
    * 判断文件是否存在
    */
   async isFileExist(dirName, fileName) {
     var bool = fs.existsSync("../data/" + dirName + "/" + fileName + ".json");
     return bool;
+  },
+
+  /**
+   * 读取JSON中的对象
+   */
+  async readFile(dirName, fileName) {
+    // 用户存在
+    var fileExist = fs.existsSync(
+      "../data/" + dirName + "/" + fileName + ".json"
+    );
+    if (!fileExist) {
+      return;
+    }
+
+    // 读取内容
+    var context = await fs.readFileSync(
+      "../data/" + dirName + "/" + fileName + ".json"
+    );
+    return JSON.parse(context);
   },
 };
