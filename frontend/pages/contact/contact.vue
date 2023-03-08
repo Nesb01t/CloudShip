@@ -1,11 +1,15 @@
 
 <template>
 	<view >
+		
 		<u-search inputAlign="center" height="35" shape="square" :showAction="false" :animation="true" style=""></u-search>
+		<u-gap height="10" bgColor="#dedede"></u-gap>
 		<view class="item-tag">
-			<u-icon label="添加联系人" size="40" name="man-add-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon>
-			<u-icon label="删除联系人" size="40" name="man-delete-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon>
-			<u-icon label="标签" size="40" name="tags" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon>
+			<a href="pages/addcontact/addcontact"><u-icon label="添加联系人" size="40" name="man-add-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></a>
+			
+			<navigator url=""><u-icon label="删除联系人" size="40" name="man-delete-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></navigator>
+			<navigator url=""><u-icon label="标签" size="40" name="tags" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></navigator>
+			
 		</view>
 		<u-index-list :index-list="indexList">
 			<view v-for="(item, index) in itemArr">

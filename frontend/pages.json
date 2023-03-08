@@ -20,6 +20,13 @@
 			"style": {
 				
 			}
+		},
+			
+		{
+			"path": "pages/addcontact/addcontact",
+			"style": {
+				
+			}
 		}
 
 	],

@@ -1,66 +1,33 @@
 <template>
-	<view class="content">
-		<view class="contact">
-			<p>联系人:</p><input type="text" placeholder="联系人">
-		</view>
-		<text>{{textValue}}</text>
-		<button @click="ChangeVlaue()">修改text里的值</button>
-		<view v-for="(value,name,index) in Object" :key="index">
-			 {{ index }}. {{ name }}: {{ value }}
+	<view class="coninter">
+		<button @click="GetList()">得到数据</button>
+		<view v-for="(item,index) in prilist" :key="index">
+			Name:{{item.name}}
+			<img :src="item.icon" alt="">
 		</view>
 	</view>
-
 </template>
-
 <script>
-	export default {
-		data() {
-			return {
-				textValue:'3456',
-				Object:{
-						name:'Anker',
-						Phone:'17857987320',
-						Class:'数字媒体技术211',
-				}
-				
-			};
+	export default{
+		data(){
+			return{
+				prilist:[],
+			}
 		},
-		methods: {
-		  ChangeVlaue(){
-			  this.textValue='8、9、10'
-		  }
+		methods:{
+			GetList(){
+				uni.request({
+					url:'https://www.escook.cn/categories',
+					method:"GET",
+					success: (e) => {
+						console.log(e);
+						this.prilist=e.data;
+					}
+				})
+			}
 		},
-	
+		onLoad() {
+			this.Getlist();
+		}
 	}
 </script>
-
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
-	.contact{
-		display: flex;
-	}
-</style>
