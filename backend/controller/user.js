@@ -27,6 +27,9 @@ class UserController {
     const body = ctx.query;
     const userName = body.name;
     const user = await fileUtils.readFile("user", userName);
+    if (user == false) {
+      ctx.status = 210;
+    }
     ctx.body = JSON.stringify(user);
   }
 }
