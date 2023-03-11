@@ -2,11 +2,16 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/auth/auth",
 			"style": {
 				"navigationBarTitleText": "登入"
+			}
+		},
+		{
+			"path": "pages/auth/register",
+			"style": {
+				"navigationBarTitleText": "注册"
 			}
 		},
 		{
@@ -14,8 +19,8 @@
 			"style": {
 				"navigationBarTitleText": "联系"
 			}
-		}
-	],
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#ffaa00",
@@ -23,4 +28,3 @@
 	},
 	"uniIdRouter": {}
 }
-
