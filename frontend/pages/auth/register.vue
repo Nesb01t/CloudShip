@@ -35,6 +35,8 @@
 			<!-- 性别遮罩层 -->
 			<u-action-sheet :show="isSexshow" :actions="actions" title="请选择性别" @close="isSexshow = false" @select="handlSexSelect"></u-action-sheet>
 
+			<u-button type="primary" text="确定" @click="successRegister"></u-button>
+			<u-button type="error" text="重置" @click="reRegister"></u-button>
 			<!-- 生日遮罩层 -->
 			<u-datetime-picker
 				:show="isBirthdayShow"
@@ -132,6 +134,17 @@ export default {
 
 		updateIntroduction(newIntroduction) {
 			this.user.introduction = newIntroduction;
+		},
+
+		successRegister() {
+			uni.navigateTo({
+				url: '../contact/contact'
+			});
+		},
+
+		reRegister() {
+			(this.user.name = ''), (this.user.sex = ''), (this.user.birthday = '');
+			(this.user.phone = ''), (this.user.address = ''), (this.user.introduction = '');
 		}
 	}
 };
