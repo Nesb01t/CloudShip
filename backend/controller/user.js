@@ -21,6 +21,15 @@ class UserController {
   }
 
   /**
+   * 创建头像文件
+   */
+  async updateUserProfile(ctx) {
+    const file = ctx.request.files.qqq;
+    console.log(file)
+    // await fileUtils.uploadFile("profile", file.newFilename, file);
+  }
+
+  /**
    * 获取用户数据
    */
   async getUserInfo(ctx) {
