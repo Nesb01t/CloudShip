@@ -1,17 +1,17 @@
 <template>
 	<view class="cointer">
-		<u-search :showAction="true" actionText="搜索" :animation="true" shape="square" placeholder="请输入学号" style="margin-top:15px;" v-model="studynumber"></u-search>
-<view class="addcontact">
-	<u-cell-group v-if="haveregist" >
-		<u-cell icon="setting-fill" :title="name" style="width: 85%;">
-		</u-cell>
-		<u-button type="primary" text="添加"  size='normal' style="width: 15%;"></u-button>
+		<u-search :showAction="true" actionText="搜索" :animation="true" shape="square" placeholder="请输入学号" @search="SearchClick()" @custom="SearchClick()" style="margin-top:15px;" v-model="studynumber"></u-search>
+			<view class="addcontact">
+	<u-cell-group >
+		<u-cell icon="setting-fill" :title="name" style="width: 85%;" v-if="haveregist"></u-cell>
+		<view class="Notfonud" style="text-align: center;margin:20px 0px;">
+			<u--text text="该用户不存在" align="center" style="" v-if="!haveregist"></u--text>
+		</view>
+		<u-button type="primary" text="添加"  size='normal' v-if="haveregist" @click="AddContact"></u-button>
 	</u-cell-group>
-</view>
-		
+		</view>
 	</view>
 </template>
-
 <script>
 export default {
 	data() {
@@ -19,48 +19,38 @@ export default {
 			src: '',
 			name: 'Anker',
 			studynumber: '',
-			haveregist: true,
-			studentinfo: []
+			haveregist:true,
+         	studentinfo: []
 		};
 	},
-
 	methods: {
-		SarchUser() {
+		SearchClick(){
+			console.log(this.studynumber);
 			uni.request({
-				url: '',
-				method: 'POST',
-				data: {
-					studynumber: this.studynumber
+				url:"",
+				method:'POST',
+				data:{
+				 studynumber:this.studynumber,
 				},
-				success: e => {
-					console.log(e);
+				success: (e) => {
+					if(e.data===null)
+					{
+						this.haveregist=false;
+					}
+					else{
+						studentinfo=e.data;
+						this.name=studentinfo.name;
+					}
 				}
-			});
+			})
 		},
-		GetuserInfo() {
-			uni.request({
-				url: '',
-				method: 'GET',
-				success: e => {
-					console.log(e);
-					if (e.statusCode == 200) {
-						this.haveregist = 'true';
-						this.studentinfo = e.data.studentinfo;
-					} else this.haveregist = 'false';
-				}
-			});
-		},
-
-		Addstudent() {}
+		AddContact(){
+			
+		}
 	}
 };
 </script>
 
 <style>
-		
-	.addcontact{
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-	}
+	
 </style>
