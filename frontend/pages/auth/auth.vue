@@ -8,7 +8,10 @@
 			<u--input type="number" placeholderStyle="#909399" placeholder="学号" border="surround" v-model="name"></u--input>
 			<u--input type="password" placeholderStyle="#909399" placeholder="密码" border="surround" v-model="password"></u--input>
 		</view>
-		<view class="btn"><u-button @click="getUserInfo" text="登录" size="large" color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"></u-button></view>
+		<view class="btn-list">
+			<view class="btn"><u-button @click="getUserInfo" text="登录" size="large" color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"></u-button></view>
+			<view class="btn"><u-button @click="handeleRegister" text="注册" size="large" color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"></u-button></view>
+		</view>
 	</view>
 </template>
 
@@ -27,6 +30,11 @@ export default {
 		handleLogin() {
 			console.log(this.name, this.password);
 			this.isServerRunning();
+		},
+		handeleRegister() {
+			uni.navigateTo({
+				url: '../auth/register'
+			});
 		},
 		postLoginMsg() {
 			uni.request({
@@ -47,7 +55,7 @@ export default {
 				url: 'http://127.0.0.1:3000/user/info?name=' + this.name,
 				success: e => {
 					const obj = e.data;
-					console.log(e.statusCode)
+					console.log(e.statusCode);
 					if (e.statusCode == 210) {
 						console.log('这个账号还没注册');
 					} else {
@@ -68,8 +76,12 @@ export default {
 	justify-content: center;
 	margin: 250rpx 0;
 }
+.btn-list {
+	display: flex;
+	flex-direction: row;
+}
 .btn {
-	margin: 50rpx 0;
+	margin: 50rpx 50rpx 0 0;
 }
 .text-area {
 	display: flex;
