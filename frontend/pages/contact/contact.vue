@@ -1,18 +1,22 @@
 
 <template>
-	<view class="item-tag">
-		<uni-list>
-			<uni-list-item title="" note="">123</uni-list-item>
-			<uni-list-item title="" note="">456</uni-list-item>
-		</uni-list>
-		<u-search inputAlign="center" height="70"></u-search>
+	<view >
 		
+		<u-search inputAlign="center" height="35" shape="square" :showAction="false" :animation="true" style=""></u-search>
+		<u-gap height="10" bgColor="#dedede"></u-gap>
+		<view class="item-tag">
+			<a href="pages/addcontact/addcontact"><u-icon label="添加联系人" size="40" name="man-add-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></a>
+			
+			<navigator url=""><u-icon label="删除联系人" size="40" name="man-delete-fill" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></navigator>
+			<navigator url=""><u-icon label="标签" size="40" name="tags" labelSize="13px" style="border-bottom: 1px solid #e6e6e6;"></u-icon></navigator>
+			
+		</view>
 		<u-index-list :index-list="indexList">
 			<view v-for="(item, index) in itemArr">
 					<u-index-anchor :text="indexList[index]"></u-index-anchor>
 					<a href="#">
 						<view class="list-cell" v-for="(cell, index) in item">
-								<u-avatar style="margin-right: 20px;" shape="square" size='30' id='avatar'></u-avatar>	
+								<u-avatar style="margin-right: 10px;" shape="square" size='30' id='avatar'></u-avatar>	
 									{{cell}}
 						</view>
 					</a>
@@ -54,13 +58,14 @@
 		padding: 10px 24rpx;
 		overflow: hidden;
 		color: #323233;
-		font-size: 14px;
+		font-size: 12px;
 		line-height: 26px;
 		background-color: #fff;
 	}
 		
-	.list-cell img{
-		margin-right:20px;
+		
+	.item-tag u-icon {
+		font-size: 14px;
 	}
 		
 	
@@ -68,8 +73,5 @@
 	a{
 		text-decoration: none;
 	}
-		
-	#avater{
-		margin-right: 20px;
-		}
+	
 </style>
