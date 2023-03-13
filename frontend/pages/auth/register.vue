@@ -41,8 +41,8 @@
 			<u-datetime-picker
 				:show="isBirthdayShow"
 				mode="date"
-				:minDate="852077000000"
-				:maxDate="1786778555000"
+				:minDate="minDate"
+				:maxDate="maxDate"
 				title="请选择生日"
 				closeOnClickOverlay
 				@close="handleBirthdayClose"
@@ -59,6 +59,8 @@ export default {
 		return {
 			isBirthdayShow: false,
 			isSexshow: false,
+			minDate: null,
+			maxDate: null,
 			user: {
 				name: '',
 				sex: '',
@@ -77,6 +79,10 @@ export default {
 			]
 		};
 	},
+	mounted() {
+		this.minDate = 852077000000;
+		this.maxDate = Date.parse(new Date());
+	},
 	methods: {
 		updateName(newname) {
 			this.user.name = newname;
@@ -92,11 +98,6 @@ export default {
 
 		handleBirthdayClose() {
 			this.isBirthdayShow = false;
-		},
-
-		getMindate() {
-			var date = new Date('1997-01-01');
-			return date;
 		},
 
 		handleBirthdayConfirm(e) {

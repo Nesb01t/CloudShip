@@ -2,11 +2,16 @@
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/auth/auth",
 			"style": {
 				"navigationBarTitleText": "登入"
+			}
+		},
+		{
+			"path": "pages/auth/register",
+			"style": {
+				"navigationBarTitleText": "注册"
 			}
 		},
 		{
@@ -18,14 +23,14 @@
 		{
 			"path": "pages/mine/mine",
 			"style": {
-				
+
 			}
 		},
-			
+
 		{
 			"path": "pages/addcontact/addcontact",
 			"style": {
-				
+
 			}
 		}
 
