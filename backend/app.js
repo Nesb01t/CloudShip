@@ -5,7 +5,16 @@ const AutoConroller = require("./routes/auth");
 const UserConroller = require("./routes/user");
 
 const app = new Koa();
-app.use(koaBody({ multipart: true }));
+app.use(
+  koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: "../data/profile",
+      keepExtensions: true,
+      maxFileSize: 200 * 1024 * 1024,
+    },
+  })
+);
 app.use(AutoConroller());
 app.use(UserConroller());
 

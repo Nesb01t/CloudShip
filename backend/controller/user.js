@@ -21,12 +21,24 @@ class UserController {
   }
 
   /**
+   * 创建头像文件
+   */
+  async updateUserProfile(ctx) {
+    const file = ctx.request.files.qqq;
+    console.log(file)
+    // await fileUtils.uploadFile("profile", file.newFilename, file);
+  }
+
+  /**
    * 获取用户数据
    */
   async getUserInfo(ctx) {
     const body = ctx.query;
     const userName = body.name;
     const user = await fileUtils.readFile("user", userName);
+    if (user == false) {
+      ctx.status = 210;
+    }
     ctx.body = JSON.stringify(user);
   }
 }

@@ -4,6 +4,13 @@ const path = require("path");
 defaultContext = {};
 
 module.exports = {
+  async uploadFile(dirName, fileName, file) {
+    const reader = fs.createReadStream(file.filepath);
+    let filePath = path.join(__dirname, "data/" + dirName + "/" + fileName);
+    const upStream = fs.createWriteStream(filePath);
+    reader.pipe(upStream);
+  },
+
   /**
    * 在指定位置创建文件并写入内容
    * 如果已创建则只写入
@@ -38,7 +45,7 @@ module.exports = {
       "../data/" + dirName + "/" + fileName + ".json"
     );
     if (!fileExist) {
-      return;
+      return false;
     }
 
     // 读取内容

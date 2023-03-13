@@ -31,10 +31,14 @@ class AuthController {
     }
 
     // 是否密码错误
-    var user = fileUtils.readFile("user", userName);
-    if (userPassword === user.password) {
+    var user = await fileUtils.readFile("user", userName);
+    if (userPassword !== user.password) {
       ctx.status = 400;
       ctx.body = "wrong password";
+      return;
+    } else {
+      ctx.status = 200;
+      ctx.body = "login success";
       return;
     }
   }
