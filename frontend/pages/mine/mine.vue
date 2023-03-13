@@ -38,14 +38,26 @@
 		methods:{
 			getUserInfo(){
 				uni.request({
-					url:"",
-					method:"GET",
+					url:"http://localhost:3000/auth/login",
+					method:"POST",
+					data: {
+						"name":"goodday",
+						"password": "253325325",
+					},
 					success: (res) => {
-						this.userInfo=res;
+						this.UserInfo=res;
+						console.log("OOOOOOOOOOOOOOOOOO")
+						console.log(res.statusCode);
+					},
+					fail: (error) => {
+						console.log(error)
 					}
 				})
 				
 			}
+		},
+		mounted(){
+			this.getUserInfo()
 		}
 	}
 	
