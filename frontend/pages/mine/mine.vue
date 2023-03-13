@@ -10,7 +10,7 @@
 				<u-cell  title="个人姓名" :value="UserInfo.name"></u-cell>
 				<u-cell  title="学号" :value="UserInfo.number"></u-cell>
 				<u-cell  title="班级" :value="UserInfo.class"></u-cell>
-				<u-cell  title="电话" :value="UserInfo.phone"></u-cell>
+				<u-cell  title="电话" :value="UserInfo.states.id"></u-cell>
 				<u-cell  title="生日" :value="UserInfo.birthday"></u-cell>
 				
 			</u-cell-group>
@@ -25,7 +25,9 @@
 			UserInfo:{
 				picUrl:'../../image/active/contact-1.png',
 				name:'Anker',
-				phone:"17857987320",
+				states:{
+					id: "123123",
+				},
 				number:"1211020035",
 				password:"baidu.123",
 				class:"数字媒体技术211",
@@ -38,16 +40,16 @@
 		methods:{
 			getUserInfo(){
 				uni.request({
-					url:"http://localhost:3000/auth/login",
-					method:"POST",
-					data: {
-						"name":"goodday",
-						"password": "253325325",
-					},
+					url:"http://192.168.213.14:3000/user/info?name=goodday",
+					method:"GET",
+					// data: {
+					// 	"name":"goodday",
+					// 	"password": "253325325",
+					// },
 					success: (res) => {
-						this.UserInfo=res;
+						this.UserInfo=res.data;
 						console.log("OOOOOOOOOOOOOOOOOO")
-						console.log(res.statusCode);
+						console.log(res.data);
 					},
 					fail: (error) => {
 						console.log(error)
